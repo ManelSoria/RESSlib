@@ -8,7 +8,7 @@ function HOMESPICE = getHomeSpice
 % path returned by this function
 % e.g. '/Volumes/Extreme SSD/SPICE/CASSINI'
 
-HOMESPICE='/Volumes/Extreme SSD/SPICE/';
+HOMESPICE='E:\TFG\SPICE\';
 
 end
 
