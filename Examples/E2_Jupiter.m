@@ -8,7 +8,7 @@ close all;
 
 clear; 
 
-addpath('../'); % Robotic Exploration of the Solar System lib
+% Recall that RESSlib should be in Matlab Path 
 
 
 METAKR={'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls', ... % leap seconds

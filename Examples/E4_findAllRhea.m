@@ -1,7 +1,7 @@
 close all;
 clear; 
 
-addpath('../'); % Path to our toolkit: Robotic Exploration of the Solar System lib
+% Recall that RESSlib should be in Matlab Path 
 
 spacecraftid='CASSINI';
 encounter='SATURN';

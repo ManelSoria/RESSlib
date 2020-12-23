@@ -3,7 +3,7 @@
 % Plot Earth and Moon position during 80 days from 2000-01-01
 close all; 
 clear; 
-addpath('../'); % Path to our toolkit: Robotic Exploration of the Solar System lib
+% Recall that RESSlib should be in Matlab Path 
 % List of the kernels URL:
 METAKR={ 'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls', ...
         'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de430.bsp', ...

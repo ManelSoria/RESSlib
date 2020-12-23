@@ -1,6 +1,6 @@
 close all; 
 
-addpath('../RESSlib');
+% Recall that RESSlib should be in Matlab Path 
 
 if 0
     % This code fragment downloads a list of all R_SCPSE Cassini kernels
