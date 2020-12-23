@@ -1,8 +1,9 @@
 close all;
 clear; 
 
-%Test Git
 % Recall that RESSlib should be in Matlab Path 
+
+showImages=0; 
 
 spacecraftid='CASSINI';
 encounter='SATURN';
@@ -30,10 +31,12 @@ onlyRHEA=onlyRHEA(indx);
 
 %%
 % A-Download and represent some images (arbitrarily selected)
-for i=3000:3010% 1:numel(onlyRHEA) 
+for i=1:10 % numel(onlyRHEA) 
     fprintf('Rhea Image %d/%d <%s>\n',i,numel(onlyRHEA),L.timestr{onlyRHEA(i)});
     a=getVoyagerCassiniImage(L,onlyRHEA(i),'CALIB');
-    imshow(a);
+    if showImages==1
+        imshow(a);
+    end
 end
 
 % B-Plot the distance from Rhea to Cassini for each image; download and
