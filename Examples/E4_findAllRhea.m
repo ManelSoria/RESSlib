@@ -28,8 +28,9 @@ onlyRHEA=find(strcmp(L.target,"RHEA")); % Indices of all Rhea images NOT sorted 
 [~,indx]=sort(et(onlyRHEA));
 onlyRHEA=onlyRHEA(indx);
 
+%%
 % A-Download and represent some images (arbitrarily selected)
-for i=2000:2010% 1:numel(onlyRHEA) 
+for i=3000:3010% 1:numel(onlyRHEA) 
     fprintf('Rhea Image %d/%d <%s>\n',i,numel(onlyRHEA),L.timestr{onlyRHEA(i)});
     a=getVoyagerCassiniImage(L,onlyRHEA(i),'CALIB');
     imshow(a);

@@ -1,7 +1,11 @@
 % From downloaded data, generates a structure containing image information
-% p: path 
-% cassini = 1: cassini data ; cassini=0 : voyager data
+% spacecraftid can be 'VOYAGER1', 'VOYAGER2' or 'CASSINI'
+% encounter can be (for CASSINI) 'JUPITER' or 'SATURN'
+%  ...
+
 function L = getAllLists(spacecraftid,encounter)
+
+% TODO: check input !!
 
 p=getHomeSpice();
 spacecraftid=upper(spacecraftid);
@@ -26,11 +30,8 @@ if length(L.instrument)~=L.nd, error('Inconsistent lists6'); end
 if length(L.timestr)~=L.nd, error('Inconsistent lists7'); end
 if length(L.volume)~=L.nd, error('Inconsistent lists8'); end
 
-if nargin==1
-    cassini=0;
-end
 
-if strcmp(spacecraftid,'CASSINI')==1
+if strcmp(spacecraftid,'CASSINI')==0 % if not Cassini
     for i=1:L.nd
         %fprintf('<%s>\n',L.instrument{i});
         q=strsplit(L.instrument{i},'-');
@@ -39,11 +40,12 @@ if strcmp(spacecraftid,'CASSINI')==1
             L.instrument{i}=strtrim(q{2});
         end
     end
-else
+else % CASSINI
     for i=1:L.nd
         L.instrument{i}=L.instrument{i}(2:end);
     end
     for i=1:L.nd
+        %fprintf('Host=<%s>\n',L.host{i});
         if strcmp(L.host{i},'CASSINIORBITER')==1 || strcmp(L.host{i},'CASSINI ORBITER')==1
             L.host{i}='CASSINI';
         else

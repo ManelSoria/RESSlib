@@ -7,7 +7,7 @@ function a = getVoyagerCassiniImage(L,i,imgtype)
 % imgtype can be 'CALIB' or 'RAW'
 
 
-    if strcmp(L.host{1},'CASSINI')
+    if strcmp(L.host{i},'CASSINI')
         q=strsplit(L.volume{i},'_');
         CC=q{2}(1);
         fullpath=sprintf('%s/imgo/',getHomeSpice());
