@@ -2,7 +2,11 @@ close all;
 
 % Recall that RESSlib should be in Matlab Path 
 
-if 0
+% TODO: improve pictures quality
+
+% First we download a list of ALL Cassini spk kernels, if it is not
+% available
+if ~isfile('CassiniAll.mat')
     % This code fragment downloads a list of all R_SCPSE Cassini kernels
     % and saves it in CassiniMat.mat file
     % aareadme.txt contains a description of the kernels 
@@ -20,7 +24,7 @@ if 0
     end
 
     save('CassiniAll.mat','MK');
-else
+else % otherwise, load it
     load('CassiniAll.mat');
 end
 
