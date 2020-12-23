@@ -2,13 +2,12 @@ close all;
 clear; 
 
 addpath('../'); % Path to our toolkit: Robotic Exploration of the Solar System lib
-ROOTP='../'; % Path to the data files
 
 spacecraftid='CASSINI';
 encounter='SATURN';
 
 
-L=getAllLists(strcat(ROOTP),spacecraftid,encounter); % get summary files
+L=getAllLists(spacecraftid,encounter); % get summary files
 
 
 % Load time kernel

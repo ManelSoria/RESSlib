@@ -1,8 +1,9 @@
 % From downloaded data, generates a structure containing image information
 % p: path 
 % cassini = 1: cassini data ; cassini=0 : voyager data
-function L = getAllLists(p,spacecraftid,encounter)
+function L = getAllLists(spacecraftid,encounter)
 
+p=getHomeSpice();
 spacecraftid=upper(spacecraftid);
 encounter=upper(encounter);
 

@@ -10,7 +10,7 @@ function a = getVoyagerCassiniImage(L,i,imgtype)
     if strcmp(L.host{1},'CASSINI')
         q=strsplit(L.volume{i},'_');
         CC=q{2}(1);
-        fullpath=sprintf('%s/imgo/',getHomeImages());
+        fullpath=sprintf('%s/imgo/',getHomeSpice());
         if strcmp(imgtype,'RAW')==1
             web=sprintf('https://pds-rings.seti.org/holdings/volumes/COISS_%sxxx_v1.0/%s/%s.IMG',CC,L.volume{i},L.name{i});
             file=sprintf('%s/%s.IMG',fullpath,L.name{i});
@@ -29,7 +29,7 @@ function a = getVoyagerCassiniImage(L,i,imgtype)
     else
         vol=L.volume{i};
         img=L.name{i};
-        fullpath=sprintf('%s/imgo/',getHomeImages());
+        fullpath=sprintf('%s/imgo/',getHomeSpice());
         %fprintf('fullpath=%s\n',fullpath);
         [SUCCESS,MESSAGE,MESSAGEID]=mkdir(fullpath);
         xvv=strcat(img(1:end-2),'XX');
