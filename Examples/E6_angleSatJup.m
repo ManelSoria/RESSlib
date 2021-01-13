@@ -33,14 +33,16 @@ b = dsat - dearth;      % Vector from Earth to Saturn
 
 
 for i=1:6000
-    stringDates(i) = convert2DateNum(cspice_et2utc(et(i), 'C', 0));
+    dateAux = cspice_et2utc(et(i), 'C', 0);    % Date in Calendar format
+    stringDate = append(dateAux(1:4),'-',lower(dateAux(6:8)),'-',dateAux(10:11)); % Date in 'InputFormat'
+    dates(i) = datetime(stringDate,'InputFormat','yyyy-MMM-dd');  % Dates in datetime
     norma(i) = norm(a(:,i));    % Norm of each vector
     normb(i) = norm(b(:,i));
     angle(i) = rad2deg(acos((dot(a(:,i),b(:,i)))/(norma(i)*normb(i)))); % Angle at each instant
 end
 figure(1);
 set(findall(gcf,'-property','FontSize'),'FontSize',18)
-plot(stringDates,angle);
+plot(dates,angle);
 xlabel('date');
 ylabel('angle');
 title(sprintf('Angle formed by Jupiter and Saturn seen from Earth'))
@@ -48,7 +50,7 @@ set(findall(gcf,'-property','FontSize'),'FontSize',18)
 
 figure(2);
 set(findall(gcf,'-property','FontSize'),'FontSize',18)
-plot(stringDates(2998:3002),angle(2998:3002));
+plot(dates(2998:3002),angle(2998:3002));
 xlabel('date');
 ylabel('angle');
 title(sprintf('Angle formed by Jupiter and Saturn seen from Earth 21/12/2020'))
@@ -56,37 +58,3 @@ set(findall(gcf,'-property','FontSize'),'FontSize',18)
 
 
 endSPICE; % Unload the kernels 
-
-
-
-function p = convert2DateNum(x)
-
-switch x(6:8)
-    case 'JAN'
-        month = '01';
-    case 'FEB'
-        month = '02';
-    case 'MAR'
-        month = '03';
-    case 'APR'
-        month = '04';
-    case 'MAY'
-        month = '05';
-    case 'JUN'
-        month = '06';
-    case 'JUL'
-        month = '07';
-    case 'AUG'
-        month = '08';
-    case 'SEP'
-        month = '09';
-    case 'OCT'
-        month = '10';
-    case 'NOV'
-        month = '11';
-    otherwise
-        month = '12';
-end
-date = append(x(1:4),'-',month,'-',x(10:11));
-p = datetime(date,'InputFormat','yyyy-MM-dd')
-end
