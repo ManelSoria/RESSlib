@@ -50,7 +50,7 @@ set(findall(gcf,'-property','FontSize'),'FontSize',18)
 
 figure(2);
 set(findall(gcf,'-property','FontSize'),'FontSize',18)
-plot(dates(2998:3002),angle(2998:3002));
+plot(dates(2950:3050),angle(2950:3050));
 xlabel('date');
 ylabel('angle');
 title(sprintf('Angle formed by Jupiter and Saturn seen from Earth 21/12/2020'))
