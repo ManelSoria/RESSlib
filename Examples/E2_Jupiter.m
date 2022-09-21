@@ -14,7 +14,8 @@ clear;
 METAKR={'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls', ... % leap seconds
         'https://naif.jpl.nasa.gov/pub/naif/VOYAGER/kernels/spk/vgr1_jup230.bsp',... % kernel of voyager 1's flyby of Jupiter 
         'https://naif.jpl.nasa.gov/pub/naif/VOYAGER/kernels/spk/vgr2_jup230.bsp',... % kernel of voyager 2's flyby of Jupiter 
-        'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup365.bsp' }; % Jupiter system
+        'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup365.bsp',... % Jupiter system
+        'https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup344.bsp'};  
 
 v=initSPICEv(fullK(METAKR));
 
@@ -56,7 +57,7 @@ ylabel('AU');
 zlabel('AU');
 axis('equal');
 legend({'J','I','E','V1'});
-title('Jupiter Voyager 1 flyby. Obs: SS barycenter');
+title('VG1 Jupiter flyby. Obs: SS barycenter. Frame ECLIPJ2000');
 grid
 set(findall(gcf,'-property','FontSize'),'FontSize',18);
 
@@ -81,7 +82,7 @@ ylabel('JR');
 zlabel('JR');
 axis('equal');
 legend({'J','I','E','V1'});
-title('Jupiter Voyager 1 flyby. Obs: Jupiter barycenter');
+title('VG1 Jupiter flyby. Obs: Jupiter barycenter. Frame ECLIPJ2000');
 grid
 set(findall(gcf,'-property','FontSize'),'FontSize',18);
 
